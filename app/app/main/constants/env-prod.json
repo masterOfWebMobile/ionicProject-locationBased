@@ -1,0 +1,28 @@
+{
+
+  "parse": {
+  	"appId": "myAppId",
+    "serverUrl": "http://localhost:1337/parse"
+  },
+
+	"push": {
+		"appId": null,
+		"googleProjectNumber": null
+	},
+
+  "admob": {
+		"interstitialForAndroid": null,
+		"interstitialForiOS": null,
+    "bannerId": null
+	},
+
+	"gaTrackingId": null,
+
+	"theme": "nearme",
+
+	"unit": "mi",
+
+  "mapType": "normal",
+
+	"statusBarColor": "#1b68ea"
+}

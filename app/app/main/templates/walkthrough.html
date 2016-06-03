@@ -1,0 +1,82 @@
+<ion-view class="walkthrough-view" cache-view="false" hide-nav-bar="true">
+	<div class="walkthrough">
+		<!-- device="iphone5|iphone5 black|iphone5 white" -->
+		<!-- device="iphone6|iphone6 black|iphone6 white|iphone6 gold" -->
+		<!-- device="iphone6-plus|iphone6-plus black|iphone6-plus white|iphone6-plus gold" -->
+		<!-- device="galaxyS5|galaxyS5 black|galaxyS5 white|galaxyS5 gold" -->
+		<!-- device="nexus6" -->
+		<!-- device="auto" -->
+		<device-slider device="auto">
+			<ion-slide-box>
+				<ion-slide>
+					<div class="row slide-head">
+						<div class="col col-center">
+							<h3>{{ "slide1Text" | translate }}</h3>
+						</div>
+					</div>
+					<div class="row slide-body">
+						<div class="col slide-body-wrapper">
+							<img class="full-width-image" ng-src="main/assets/images/slide-1.jpg">
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="row slide-head">
+						<div class="col col-center">
+							<h3>{{ "slide2Text" | translate }}</h3>
+						</div>
+					</div>
+					<div class="row slide-body">
+						<div class="col slide-body-wrapper">
+							<img class="full-width-image" ng-src="main/assets/images/slide-2.jpg">
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="row slide-head">
+						<div class="col col-center">
+							<h3>{{ "slide3Text" | translate }}</h3>
+						</div>
+					</div>
+					<div class="row slide-body">
+						<div class="col slide-body-wrapper">
+							<img class="full-width-image" ng-src="main/assets/images/slide-3.jpg">
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="row slide-head">
+						<div class="col col-center">
+							<h3>{{ "slide4Text" | translate }}</h3>
+						</div>
+					</div>
+					<div class="row slide-body">
+						<div class="col slide-body-wrapper">
+							<img class="full-width-image" ng-src="main/assets/images/slide-4.jpg">
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="row slide-head">
+						<div class="col col-center">
+							<h3>{{ "slide5Text" | translate }}</h3>
+						</div>
+					</div>
+					<div class="row slide-body">
+						<div class="col slide-body-wrapper">
+							<img class="full-width-image" ng-src="main/assets/images/slide-5.jpg">
+						</div>
+					</div>
+				</ion-slide>
+			</ion-slide-box>
+		</device-slider>
+
+		<div class="intro-buttons row">
+			<div class="col col-center">
+				<button class="button button-block button-{{theme}}" ng-click="onSkip()">
+					{{ "getStartedText" | translate }}
+				</button>
+			</div>
+		</div>
+	</div>
+</ion-view>

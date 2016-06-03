@@ -1,0 +1,19 @@
+<ion-view view-title="{{ 'appTitle' | translate }}" hide-back-button="true">
+  <ion-content>
+    <div ng-if="showErrorView()" ng-include="'main/templates/error-view.html'"></div>
+    <ion-refresher
+    pulling-text="{{ 'loadingText' | translate }}"
+    on-refresh="onReload()"></ion-refresher>
+    <div ng-if="showCategories()" ng-repeat="category in categories">
+	    <div class="row row-category">
+	      <div class="col">
+	        <a href="#/app/places/{{ category.id }}/{{category.title}}">
+	  	      <div class="item-category animated fadeIn" style="background-image:-webkit-linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ category.image_url }}');background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ category.image_url }}')">
+	  	        <h3 class="title">{{ category.title }}</h3>
+	  	      </div>
+        	</a>
+	      </div>
+	    </div>
+	  </div>
+  </ion-content>
+</ion-view>

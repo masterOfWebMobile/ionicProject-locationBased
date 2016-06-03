@@ -1,0 +1,226 @@
+//nearme Theme
+// Colors
+// -------------------------------
+$nearme: #e91e63 !default;
+$nearme-dark: darken($nearme, 30%);
+
+// Buttons
+// -------------------------------
+$button-nearme-bg: $nearme !default;
+$button-nearme-text: #fff !default;
+$button-nearme-border: $nearme !default;
+$button-nearme-active-bg: darken($nearme, 20%) !default;
+$button-nearme-active-border: darken($nearme, 20%) !default;
+
+// Bars
+// -------------------------------
+$bar-nearme-bg: rgba($button-nearme-bg, $bar-transparency) !default;
+$bar-nearme-text: $button-nearme-text !default;
+$bar-nearme-border: $button-nearme-border !default;
+$bar-nearme-active-bg: $button-nearme-active-bg !default;
+$bar-nearme-active-border: $button-nearme-active-border !default;
+
+// Tabs
+// -------------------------------
+$tabs-nearme-bg: $button-nearme-bg !default;
+$tabs-nearme-border: $button-nearme-border !default;
+$tabs-nearme-text: $button-nearme-text !default;
+$tabs-striped-off-color: #000;
+$tabs-striped-off-opacity: .4;
+$tabs-striped-border-width: 4px;
+
+// Items
+// -------------------------------
+$item-nearme-bg: $button-nearme-bg !default;
+$item-nearme-border: $button-nearme-border !default;
+$item-nearme-text: $button-nearme-text !default;
+$item-nearme-active-bg: $button-nearme-active-bg !default;
+$item-nearme-active-border: $button-nearme-active-border !default;
+
+// Toggle
+// -------------------------------
+$toggle-on-nearme-bg: $button-nearme-border !default;
+$toggle-on-nearme-border: $toggle-on-nearme-bg !default;
+$toggle-on-stable-bg: $button-stable-border !default;
+
+// Checkbox
+// -------------------------------
+$checkbox-off-border-nearme: $button-nearme-border !default;
+$checkbox-on-bg-nearme: $button-nearme-border !default;
+
+// Range
+// -------------------------------
+$range-nearme-track-bg: $button-nearme-border !default;
+
+// Badges
+// -------------------------------
+$badge-nearme-bg: $button-nearme-bg !default;
+$badge-nearme-text: $button-nearme-text !default;
+
+//Util
+
+// Allow parent element of tabs to define color, or just the tab itself */
+.tabs-nearme > .tabs,
+.tabs.tabs-nearme {
+  @include tab-style($tabs-nearme-bg, $tabs-nearme-border, $tabs-nearme-text);
+  @include tab-badge-style($tabs-nearme-text, $tabs-nearme-bg);
+}
+
+@mixin tabs-striped($style, $color) {
+  &.#{$style} {
+    .tab-item.tab-item-active,
+    .tab-item.active,
+    .tab-item.activated {
+      margin-top: -4px;
+      color: $color;
+      border-style: solid;
+      border-width: $tabs-striped-border-width 0 0 0;
+      border-color: $color;
+    }
+  }
+}
+
+.tabs-striped {
+  .tabs {
+
+    background-color: #fff;
+    background-image: none;
+    border: 0;
+
+  }
+
+  @include tabs-striped('tabs-nearme', $nearme);
+  .tab-item {
+    color: $tabs-striped-off-color;
+    opacity: $tabs-striped-off-opacity;
+  }
+}
+
+// Navigational tab */
+
+// Active state for tab
+
+.tab-item.tab-item-active,
+.tab-item.active,
+.tab-item.activated {
+  opacity: 1;
+
+  &.tab-item-nearme {
+    color: $nearme;
+  }
+
+}
+
+.nearme,
+a.nearme {
+  color: $nearme;
+}
+
+.nearme-bg {
+  background-color: $nearme;
+}
+
+.nearme-border {
+  border-color: $button-nearme-border;
+}
+
+.tabs .tab-item .badge,
+.badge {
+  &.badge-nearme {
+    @include badge-style($badge-nearme-bg, $badge-nearme-text);
+  }
+}
+
+.bar {
+  &.bar-nearme {
+    @include bar-style($bar-nearme-bg, $bar-nearme-border, $bar-nearme-text);
+  }
+}
+
+.bar-nearme {
+  .button {
+    @include button-style($bar-nearme-bg, $bar-nearme-border, $bar-nearme-active-bg, $bar-nearme-active-border, $bar-nearme-text);
+    @include button-clear($bar-nearme-text, $bar-title-font-size);
+  }
+}
+
+.button {
+  &.button-nearme {
+    @include button-style($button-nearme-bg, $button-nearme-border, $button-nearme-active-bg, $button-nearme-active-border, $button-nearme-text);
+    @include button-clear($button-nearme-border);
+    @include button-outline($button-nearme-border);
+  }
+}
+
+//This will be here
+&.button-outline {
+  @include button-outline($button-nearme-border);
+  @include transition(opacity .1s);
+  background: none;
+  box-shadow: none;
+}
+
+.button-clear {
+  @include button-clear($button-nearme-border);
+  @include transition(opacity .1s);
+  padding: 0 $button-clear-padding;
+  max-height: $button-height;
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+
+  &.active,
+  &.activated {
+    opacity: 0.3;
+  }
+}
+
+.item {
+  &.item-nearme {
+    @include item-style($item-nearme-bg, $item-nearme-border, $item-nearme-text);
+  }
+}
+
+.item.active,
+.item.activated,
+.item-complex.active .item-content,
+.item-complex.activated .item-content,
+.item .item-content.active,
+.item .item-content.activated {
+
+  &.item-nearme {
+    @include item-active-style($item-nearme-active-bg, $item-nearme-active-border);
+  }
+}
+
+.item-complex {
+
+  &.item-nearme > .item-content {
+    @include item-style($item-nearme-bg, $item-nearme-border, $item-nearme-text);
+
+    &.active,
+    &:active {
+      @include item-active-style($item-nearme-active-bg, $item-nearme-active-border);
+    }
+  }
+}
+
+.checkbox {
+  &.checkbox-nearme {
+    @include checkbox-style($checkbox-off-border-nearme, $checkbox-on-bg-nearme, $checkbox-off-border-nearme);
+  }
+}
+
+.toggle {
+  &.toggle-nearme {
+    @include toggle-style($toggle-on-nearme-border, $toggle-on-nearme-bg);
+  }
+}
+
+.range {
+  &.range-nearme {
+    input {
+      @include range-style($range-nearme-track-bg);
+    }
+  }
+}

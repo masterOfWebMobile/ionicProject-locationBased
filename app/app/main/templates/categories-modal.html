@@ -1,0 +1,18 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeCategoriesModal()">
+        {{ "closeText" | translate }}
+      </button>
+    </div>
+    <h1 class="title">{{ "categoriesTitle" | translate }}</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item {{ theme }}" ng-repeat="category in categories"
+      ng-click="onCategorySelected(category)" bindonce>
+        <h2 bo-bind="category.title"></h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

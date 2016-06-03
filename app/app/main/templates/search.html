@@ -1,0 +1,41 @@
+<ion-view view-title="{{ 'searchText' | translate }}">
+  <ion-header-bar class="bar bar-subheader item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" ng-model="params.search"
+      ng-change="onSearch()"
+      ng-model-options="{debounce:1000}"
+      style="text-transform:lowercase"
+      placeholder="{{ 'searchText' | translate }}">
+    </label>
+    <button class="button button-clear" ng-if="search.length"
+      ng-click="clearSearch()">
+      {{ "cancelText" | translate }}
+    </button>
+  </ion-header-bar>
+  <ion-content class="has-subheader">
+
+    <div class="empty-view" ng-if="showEmptyView()">
+      <i class="icon ion-android-sad {{theme}}"></i>
+      <p>{{ "noPlacesFoundText" | translate }}</p>
+    </div>
+
+    <div class="placeholder-view" ng-if="showInitialView()">
+      <i class="icon ion-ios-search {{theme}}"></i>
+      <p>{{ "searchPlaceholderViewText" | translate }}</p>
+    </div>
+
+    <div class="list" ng-if="showPlaces()">
+	    <a class="item item-thumbnail-left item-text-wrap {{theme}}" bindonce
+        ng-click="onNavigateToPlace(place.id)" ng-repeat="place in places">
+	      <img class="animated fadeIn"
+          ng-src="main/assets/images/placeholder.png"
+          actual-src="{{ place.imageThumb.url() }}">
+	      <h2 bo-text="place.title"></h2>
+        <rating ng-if="place.rating" ng-model="place.rating" max="maxRating">
+        </rating>
+	    </a>
+  	</div>
+
+  </ion-content>
+</ion-view>

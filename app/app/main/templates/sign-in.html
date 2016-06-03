@@ -1,0 +1,55 @@
+<ion-modal-view ng-controller="SignInCtrl">
+  <ion-header-bar class="nearme-bg">
+    <div class="buttons">
+      <button class="button button-clear button-light" ng-click="closeSignInModal()">
+        {{ "closeText" | translate }}
+      </button>
+    </div>
+    <h1 class="title stable">{{ "signInText" | translate }}</h1>
+  </ion-header-bar>
+  <ion-content class="nearme-bg-dark">
+    <div class="list text-center">
+      <img class="logo" src="main/assets/images/logo.png" width="96" height="96">
+    </div>
+    <div class="list list-inset" style="background:none">
+      <form name="form" ng-hide="showRecoverPasswordForm">
+        <label class="item item-input">
+          <input type="text" placeholder="{{ 'emailText' | translate }}"
+          ng-model="login.email" autocapitalize="off" autocorrect="off" required>
+        </label>
+        <br>
+        <label class="item item-input">
+          <input type="password" placeholder="{{ 'passwordText' | translate }}"
+          ng-model="login.password" autocapitalize="off" autocorrect="off" required>
+        </label>
+        <br><br>
+        <div class="list text-center">
+          <button class="button button-{{theme}}" ng-click="onSignIn(form.$valid)">
+            <strong>{{ "signInText" | translate }}</strong>
+          </button>
+        </div>
+      </form>
+      <form name="recoverForm" ng-show="showRecoverPasswordForm">
+        <label class="item item-input">
+          <input type="text" placeholder="{{ 'emailText' | translate }}"
+          ng-model="login.email" autocapitalize="off" autocorrect="off" required>
+        </label>
+        <br><br>
+        <div class="list text-center">
+          <button class="button button-{{theme}}"
+            ng-click="recoverPassword(recoverForm.$valid)">
+            <strong>{{ "resetPasswordText" | translate }}</strong>
+          </button>
+        </div>
+      </form>
+    </div>
+    <p class="text-center positive" ng-click="onRecoverPassword(true)"
+      ng-if="!showRecoverPasswordForm">
+      {{ "forgotPasswordText" | translate }}
+    </p>
+    <p class="text-center positive" ng-click="onRecoverPassword(false)"
+      ng-if="showRecoverPasswordForm">
+      {{ "signInText" | translate }}
+    </p>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,367 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+*/
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #4a87ee !default;
+$calm:                            #43cee6 !default;
+$balanced:                        #66cc33 !default;
+$energized:                       #f0b840 !default;
+$assertive:                       #ef4e3a !default;
+$royal:                           #8a6de9 !default;
+$dark:                            #000 !default;
+
+$ionicons-font-path: "../assets/fonts" !default;
+
+$input-bg-disabled: $light !default;
+$grid-padding-width: 1px !default;
+$menu-bg: #3f4041;
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@import "../../bower_components/ionic/scss/ionic";
+@import "nearme";
+@import "walkthrough/walkthrough.variables";
+@import "walkthrough/devices.styles";
+@import "walkthrough/walkthrough.styles";
+
+$primary: $nearme;
+
+.scroll {
+    height: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#map_canvas {
+  height: 100%;
+  width: 100%;
+}
+
+#map_canvas2 {
+  height: 200px;
+  width: 100%;
+}
+
+.buttons-center {
+	margin: 0 auto;
+
+  .button {
+    border-color: lighten($primary, 30%);
+    color: $light;
+  }
+}
+
+.row-category {
+	padding: 0;
+
+	a {
+	  text-decoration: none;
+	}
+}
+
+.item-category {
+  background-color: #E0E0E0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 100%;
+	height: 170px;
+	position: relative;
+	float: left;
+
+	.title {
+		color: white;
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		text-align: center;
+		text-decoration: none;
+		text-shadow: 0 1px 0 black;
+		transform: translate(-50%, -50%);
+	}
+}
+
+ul.rating {
+  li {
+    display: inline;
+    border: 0px;
+    background: none;
+    padding: 0 2px;
+  }
+}
+
+
+.places-view, .places-modal {
+  ul.rating {
+
+    li {
+      display: inline;
+      border: 0px;
+      background: none;
+      padding: 0 2px;
+    }
+  }
+  ul.rating li i {
+    font-size: 20px;
+    color: $energized;
+  }
+}
+
+.review-modal {
+
+  ul.rating {
+
+    text-align: center;
+
+    li {
+      display: inline;
+      border: 0px;
+      background: none;
+      padding: 5px 10px;
+    }
+  }
+  ul.rating li i {
+    font-size: 30px;
+    color: $energized;
+  }
+
+  .spinner svg {
+    width: 44px;
+    height: 20px;
+    vertical-align: middle;
+  }
+}
+
+.place-view {
+
+  .place-thumb {
+    position: absolute;
+    left: 15px;
+    top: 160px;
+    z-index: 1;
+
+    .place-img {
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      box-shadow: 0px 0px 0px 3px #fff;
+    }
+
+    .place-title {
+      background: white;
+      border-radius: 2px;
+      -webkit-border-radius: 2px;
+      padding: 4px 16px;
+      opacity: .7;
+      top: -15px;
+      left: -5px;
+      position: relative;
+      z-index: -1;
+    }
+  }
+
+  .ion-record {
+     text-shadow: 0 2px 4px white;
+  }
+
+  .place-bg {
+    background-color: lighten($primary, 30%);
+  	background-size: cover;
+  	background-repeat: no-repeat;
+  	background-position: 50% 50%;
+  	width: 100%;
+  	height: 250px;
+  	padding-top: 40px;
+  }
+}
+
+.error, .empty-view, .placeholder-view {
+
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	text-align: center;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+
+	.icon {
+		font-size: 96px;
+	}
+}
+
+.menu {
+
+  overflow-y: scroll;
+
+	.img-profile {
+		border-radius: 50%;
+		-webkit-border-radius:50%;
+		display: block;
+		box-shadow: 0px 0px 0px 3px #fff;
+		margin: 30px auto 0;
+	}
+
+	.title-profile {
+		color: #F0F1F1;
+		text-align: center;
+	}
+
+	.item {
+	    background-color: rgba(0, 0, 0, 0);
+	    border: none;
+	    border-top: 1px solid;
+	    border-bottom: 1px solid;
+	    border-color: lighten( $menu-bg, 10% );
+	    padding: 20px;
+	    color: #F0F1F1;
+	    max-height: none;
+	}
+}
+
+.profile {
+	background-color: $nearme-dark;
+
+	.img-profile {
+		border-radius: 50%;
+		-webkit-border-radius:50%;
+		display: block;
+		box-shadow: 0px 0px 0px 3px #fff;
+		margin: 50px auto 0;
+	}
+
+	.title-profile {
+		color: #F0F1F1;
+		text-align: center;
+	}
+}
+
+.new {
+
+  .col {
+    padding: 5px;
+  }
+
+  .photo-box {
+    padding: 15px;
+    width: 100%;
+    height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    background: #f7f7f7;
+    text-align: center;
+    background-size: cover;
+  	background-repeat: no-repeat;
+  	background-position: 50% 50%;
+
+    .ion-camera {
+      font-size: 24px;
+    }
+  }
+
+  .spinner svg {
+    height: 21px;
+  }
+}
+
+.auth-modal {
+
+  .content {
+    padding-top: 60px;
+  }
+
+  .icon.ion-ios-locked-outline {
+    font-size: 140px
+  }
+
+  .info {
+    font-size:18px;
+    line-height:32px;
+  }
+
+  .button-fb {
+    background-color: #3b5998;
+    color: $light;
+  }
+
+  .bar-footer {
+    height: 80px;
+
+    .buttons {
+      width: 100%;
+    }
+  }
+}
+
+.photos-modal {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+
+  .slider {
+    width: 100%;
+    height: 100%;
+  }
+
+  .fullscreen-image {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+}
+
+.item-button-right > .button {
+	top: 34px;
+	right: 3px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}

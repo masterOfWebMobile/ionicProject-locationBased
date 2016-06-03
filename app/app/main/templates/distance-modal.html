@@ -1,0 +1,20 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeDistanceModal()">
+        {{ "closeText" | translate }}
+      </button>
+    </div>
+    <h1 class="title">{{ "chooseDistanceText" | translate }}</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item {{ theme }} item-icon-right"
+        ng-repeat="distance in distances"
+        ng-click="onDistanceSelected(distance.val)" bindonce>
+        <h2 bo-bind="distance.text"></h2>
+        <i class="icon ion-checkmark" ng-show="params.distance === distance.val"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

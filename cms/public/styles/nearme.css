@@ -1,0 +1,156 @@
+ng-md-icon {
+  fill: grey;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+table.md-table td.md-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 100px;
+  max-width: 100px;
+}
+
+.filter-bar {
+  padding-left: 15px;
+}
+
+.filter-bar md-input-container {
+  margin-right: 10px;
+}
+
+.filter-bar md-datepicker {
+  padding-top: 16px;
+}
+
+.icon-add, .icon-close, .icon.light {
+	fill: white;
+}
+
+.photo-camera {
+	cursor: pointer;
+}
+
+.photo-active {
+	fill: #1e88e5;
+}
+
+.fade.ng-enter {
+  transition: 1s linear all;
+  opacity: 0;
+}
+
+.fade.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.md-button.md-fab.md-fab-bottom-right {
+	top: auto;
+	right: 20px;
+	bottom: 20px;
+	left: auto;
+	position: fixed;
+}
+
+.star-rating {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.star {
+  padding: 1px;
+  color: #ddd;
+  font-size: 20px;
+  text-shadow: .05em .05em #aaa;
+  list-style-type: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.star.filled i {
+  color: #fd0;
+}
+
+.login-content {
+	background: none;
+}
+
+.content {
+	background-color: #EEE;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.no-padding {
+	padding: 0px;
+}
+.no-margin {
+	margin: 0px;
+}
+
+.color-white {
+	color: #fff;
+}
+
+.map {
+	display: block;
+	height: 250px;
+	width: 100%;
+}
+
+.hide {
+	display: none !important;
+}
+
+.img-thumb {
+	width: 80px;
+	height: 80px;
+  margin: 5px 0;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.no-border {
+	border: none
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.label {
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: inline-block;
+  line-height: 1.5em;
+  text-align: center;
+  min-width: 80px;
+}
+
+.label.yellow {
+  background-color: #FFF176;
+}
+
+.label.orange {
+  background-color: #FF9E3D;
+}
+
+.label.green {
+  background-color: #AED581;
+}
+
+.label.red {
+  background-color: #E57373;
+}

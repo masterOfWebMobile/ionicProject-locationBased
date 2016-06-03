@@ -1,0 +1,33 @@
+<ion-view class="places-view">
+  <ion-nav-title>{{ "favoritesText" | translate }}</ion-nav-title>
+  <ion-content>
+    <div ng-if="showErrorView()" ng-include="'main/templates/error-view.html'">
+    </div>
+    <div ng-if="showEmptyView()" ng-include="'main/templates/empty-favorites.html'">
+    </div>
+
+    <ion-refresher
+    pulling-text="{{ 'loadingText' | translate }}"
+    on-refresh="onReload()"></ion-refresher>
+
+  	<div class="list" ng-if="showPlaces()">
+	    <a class="item item-thumbnail-left item-button-right {{theme}}"
+      href="#/app/place/{{place.id}}" ng-repeat="place in places" bindonce>
+	      <img class="animated fadeIn" ng-src="main/assets/images/placeholder.png"
+        actual-src="{{ place.imageThumb.url() }}">
+	      <h2 bo-text="place.title"></h2>
+	      <p bo-text="place.description"></p>
+        <rating ng-if="place.rating" ng-model="place.rating" max="maxRating">
+        </rating>
+	    </a>
+  	</div>
+
+    <ion-infinite-scroll
+      on-infinite="onLoadMore()"
+      ng-if="moreDataCanBeLoaded()"
+      spinner
+      distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

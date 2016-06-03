@@ -1,0 +1,19 @@
+<div class="device-slider {{ device }}">
+	<device-frame class="device-wrapper row">
+		<div class="col device-wrapper-body">
+			<div class="row device-wrapper-container">
+				<div class="col-20 left-dissapearing-effect">
+				</div>
+				<div class="col center-dissapearing-effect">
+					<div class="top-dissapearing-effect"></div>
+					<div class="device-background {{ device }}"></div>
+				</div>
+				<div class="col-20 right-dissapearing-effect">
+				</div>
+			</div>
+		</div>
+	</device-frame>
+	<device-slides>
+		<ng-transclude></ng-transclude>
+	</device-slides>
+</div>

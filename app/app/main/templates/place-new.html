@@ -1,0 +1,96 @@
+<ion-view view-title="{{ 'newPlaceTitle' | translate }}">
+  <ion-content class="new" on-scroll="onScroll()">
+    <div class="padding">
+      <div class="row">
+        <div class="col">
+          <div class="photo-box" ng-click="uploadImageOne()"
+          ng-style="{'background-image':'url(' + place.image.url() + ')'}">
+            <i class="icon ion-camera {{ theme }}"
+            ng-if="!isImageOneUploading && !place.image">
+            </i>
+            <ion-spinner ng-if="isImageOneUploading && !place.image">
+            </ion-spinner>
+          </div>
+        </div>
+        <div class="col">
+          <div class="photo-box" ng-click="uploadImageTwo()"
+          ng-style="{'background-image':'url(' + place.imageTwo.url() + ')'}">
+            <i class="icon ion-camera {{theme}}"
+            ng-if="!isImageTwoUploading && !place.imageTwo">
+            </i>
+            <ion-spinner ng-if="isImageTwoUploading && !place.imageTwo">
+            </ion-spinner>
+          </div>
+        </div>
+        <div class="col">
+          <div class="photo-box" ng-click="uploadImageThree()"
+          ng-style="{'background-image':'url(' + place.imageThree.url() + ')'}">
+            <i class="icon ion-camera {{theme}}"
+            ng-if="!isImageThreeUploading && !place.imageThree">
+            </i>
+            <ion-spinner ng-if="isImageThreeUploading && !place.imageThree">
+            </ion-spinner>
+          </div>
+        </div>
+        <div class="col">
+          <div class="photo-box" ng-click="uploadImageFour()"
+          ng-style="{'background-image':'url(' + place.imageFour.url() + ')'}">
+            <i class="icon ion-camera {{theme}}"
+            ng-if="!isImageFourUploading && !place.imageFour">
+            </i>
+            <ion-spinner ng-if="isImageFourUploading && !place.imageFour">
+            </ion-spinner>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="{{ 'searchAddressText' | translate }}"
+          ng-model="place.address"
+          ng-model-options="{ debounce: 1500 }"
+          ng-change="onSearchAddress()">
+      </label>
+    </div>
+    <div id="map_canvas2"></div>
+    <form name="form" novalidate>
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">{{ "inputTitleText" | translate }}</span>
+          <input type="text" name="title" placeholder="{{ 'inputTitleText' | translate }}"
+          ng-model="place.title" required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">{{ "inputCategoryText" | translate }}</span>
+          <input type="text" name="category" placeholder="{{ 'inputCategoryText' | translate }}"
+          ng-model="place.category.title" ng-click="openCategoriesModal()" readonly>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">{{ "labelDescriptionText" | translate }}</span>
+          <textarea name="description" placeholder="{{ 'inputDescriptionText' | translate }}" ng-model="place.description"></textarea>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">{{ "inputPhoneText" | translate }}</span>
+          <input type="text" name="phone" placeholder="{{ 'inputPhoneText' | translate }}"
+          ng-model="place.phone">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">{{ "inputWebsiteText" | translate }}</span>
+          <input type="text" name="website" placeholder="{{ 'inputWebsiteText' | translate }}"
+          ng-model="place.website">
+        </label>
+      </div>
+      <div class="padding">
+        <button type="button" class="button button-block button-{{ theme }}"
+        ng-click="onSavePlace(form.$valid)" ng-disabled="isSavingPlace()">
+          <span ng-if="isSavingPlace()">
+            <ion-spinner class="spinner-light"></ion-spinner>
+            {{ "loadingText" | translate }}
+          </span>
+          <span ng-if="!isSavingPlace()">{{ "buttonSubmitPlaceText" | translate }}</span>
+        </button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

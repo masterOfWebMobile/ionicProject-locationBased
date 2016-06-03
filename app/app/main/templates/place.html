@@ -1,0 +1,114 @@
+<ion-view class="place-view">
+  <ion-nav-title>{{ place.title }}</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-share" ng-click="onShare()" ng-disabled="!place"></button>
+  </ion-nav-buttons>
+  <ion-content>
+
+    <div ng-if="showErrorView()" ng-include="'main/templates/error-view.html'"></div>
+
+    <div ng-if="showPlace()">
+      <div class="place-thumb">
+        <img class="place-img" width="40" height="40" actual-src="{{ place.imageThumb.url() }}"
+        ng-src="main/assets/images/placeholder.png" />
+        <span class="place-title">{{ place.title }}</span>
+      </div>
+      <div ng-if="!existImages()">
+        <div class="place-bg animated fadeIn"></div>
+      </div>
+      <ion-slide-box>
+					<ion-slide ng-repeat="image in images">
+            <div class="place-bg animated fadeIn"
+            ng-click="openPhotosModal($index)"
+            style="background-image: url('{{ image.url() }}')"></div>
+					</ion-slide>
+			</ion-slide-box>
+
+      <div class="list" ng-if="place.description">
+        <div class="item item-no-border item-text-wrap">
+          {{ place.description }}
+        </div>
+      </div>
+
+      <div class="row padding {{theme}}">
+        <div class="col">
+          <button type="button"
+            class="button button-outline button-block button-large button-{{theme}}"
+            ng-click="openReviewModal()">
+            <i class="icon ion-chatbubble-working"></i>
+          </button>
+        </div>
+        <div class="col">
+          <button type="button"
+            style="margin-left: 5px"
+            class="button button-outline button-block button-large button-{{theme}}"
+            ng-click="onLikePlace()">
+            <i class="icon"
+              ng-class="isLiked ? 'ion-ios-heart' : 'ion-ios-heart-outline'">
+            </i>
+          </button>
+        </div>
+      </div>
+
+    	<div class="list card">
+
+    	  <a ng-click="openGoogleMaps(place.latitude, place.longitude)" class="item item-image">
+    	    <img ng-src="https://maps.googleapis.com/maps/api/staticmap?zoom=18&size=600x200&markers={{place.latitude}},{{place.longitude}}" />
+    	  </a>
+    	  <a class="item item-text-wrap">{{ place.address }}</a>
+
+    	</div>
+
+      <div class="list card">
+        <a ng-click="openGoogleMaps(place.latitude, place.longitude)" class="item item-icon-left item-icon-right">
+          <i class="icon ion-map {{theme}}"></i>
+          {{ "getDirectionsText" | translate }}
+          <i class="icon ion-chevron-right {{theme}}"></i>
+        </a>
+
+        <a ng-href="tel:{{ place.phone }}" class="item item-icon-left item-icon-right" ng-if="place.phone">
+          <i class="icon ion-ios-telephone {{theme}}"></i>
+          {{ "callToText" | translate }} {{ place.phone }}
+          <i class="icon ion-chevron-right {{theme}}"></i>
+        </a>
+
+        <a ng-click="openUrl(place.website)" class="item item-icon-left item-icon-right"
+          ng-if="place.website && place.website !== 'http://'">
+          <i class="icon ion-ios-world {{theme}}"></i>
+          {{ "openWebsiteText" | translate }}
+          <i class="icon ion-chevron-right {{theme}}"></i>
+        </a>
+      </div>
+      <ion-list>
+        <ion-item class="item-divider">
+          <br>
+          {{ "reviewsTitle" | translate }}
+        </ion-item>
+        <ion-item ng-if="!existReviews()">
+          <p>
+            {{ "reviewsNotFoundText" | translate }}
+          </p>
+        </ion-item>
+        <ion-item class="item-avatar item-text-wrap"
+        ng-repeat="review in reviews" bindonce>
+          <img ng-src="main/assets/images/avatar.png"
+          actual-src="{{ review.userData.get('photo').url() }}" />
+          <h2 bo-text="review.userData.get('name')"></h2>
+          <rating ng-if="review.rating" readonly="readOnly"
+          ng-model="review.rating" max="maxRating">
+          </rating>
+          <p bo-text="review.comment"></p>
+        </ion-item>
+      </ion-list>
+
+      <ion-list type="card" ng-if="existReviews()">
+        <ion-item class="item-icon-right" href="#/app/place/{{place.id}}/reviews">
+          {{ "openReviewsButtonText" | translate }}
+          <i class="icon ion-chevron-right {{ theme }}"></i>
+        </ion-item>
+      </ion-list>
+      <br>
+
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view class="profile">
+  <ion-nav-title>{{ "profileTitle" | translate }}</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon"
+    ng-click="openProfileModal()">
+      <i class="icon ion-edit"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="list text-center">
+      <img class="img-profile" width="96" height="96"
+      ng-click="onImageTapped()" actual-src="{{ user.get('photo').url() }}"
+      ng-src="main/assets/images/avatar.png"><br>
+      <h4 class="title-profile">{{ user.get('name') }}</h4>
+      <h4 class="title-profile">{{ user.get('email') }}</h4>
+      <h5 class="title-profile">{{ "userSinceText" | translate }}
+        {{ user.createdAt | date:'mediumDate' }}
+      </h5>
+      <div class="padding">
+        <button class="button button-assertive button-light"
+          ng-click="onDeleteAccount()">
+          {{ "deleteAccountText" | translate }}
+        </button>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

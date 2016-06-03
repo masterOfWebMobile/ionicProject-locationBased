@@ -1,0 +1,152 @@
+// Device styles
+.device-background {
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-color: initial;
+	background-image: url(unquote($device-mockups-path + "iphone_5/iphone_5_port_black.png"));
+}
+
+/* DEVICES */
+
+/* iPhone6 Plus */
+.device-background.iphone6-plus
+{
+	width: 114%;
+	height: 100%;
+	z-index: $base-z-index + 1;
+	position: absolute;
+	left: -7%;
+	background-size: 100%;
+	// position-y represents the pixels from top, its the same in every device
+	background-position-y: 32px;
+	background-position-x: center;
+}
+.device-slider.iphone6-plus
+{
+	.slider-slide .slide-body .slide-body-wrapper
+	{
+  	margin-top: 25.5%;
+	}
+}
+.device-background.iphone6-plus,
+.device-background.iphone6-plus.black
+{
+	background-image: url(unquote($device-mockups-path + "iphone_6_plus/iphone_6_plus_black_port.png"));
+}
+.device-background.iphone6-plus.white
+{
+	background-image: url(unquote($device-mockups-path + "iphone_6_plus/iphone_6_plus_white_port.png"));
+}
+.device-background.iphone6-plus.gold
+{
+	background-image: url(unquote($device-mockups-path + "iphone_6_plus/iphone_6_plus_gold_port.png"));
+}
+
+/* iPhone6 */
+.device-background.iphone6
+{
+	width: 114%;
+	height: 100%;
+	z-index: $base-z-index + 1;
+	position: absolute;
+	left: -7%;
+	background-size: 100%;
+	background-position-y: 26px;
+	background-position-x: center;
+}
+.device-slider.iphone6
+{
+	.slider-slide .slide-body .slide-body-wrapper
+	{
+  	margin-top: 25.5%;
+	}
+}
+.device-background.iphone6,
+.device-background.iphone6.black
+{
+	background-image: url(unquote($device-mockups-path + "iphone_6/iphone_6_black_port.png"));
+}
+.device-background.iphone6.white
+{
+	background-image: url(unquote($device-mockups-path + "iphone_6/iphone_6_white_port.png"));
+}
+.device-background.iphone6.gold
+{
+	background-image: url(unquote($device-mockups-path + "iphone_6/iphone_6_gold_port.png"));
+}
+
+/* iPhone5 */
+.device-background.iphone5
+{
+	width: 130%;
+	height: 100%;
+	z-index: $base-z-index + 1;
+	position: absolute;
+	left: -15%;
+	background-size: 100%;
+	background-position-y: 0px;
+	background-position-x: center;
+}
+.device-background.iphone5,
+.device-background.iphone5.black
+{
+	background-image: url(unquote($device-mockups-path + "iphone_5/iphone_5_port_black.png"));
+}
+.device-background.iphone5.white
+{
+	background-image: url(unquote($device-mockups-path + "iphone_5/iphone_5_port_white.png"));
+}
+
+/* Nexus 6 */
+.device-background.nexus6
+{
+	width: 109%;
+	height: 100%;
+	z-index: $base-z-index + 1;
+	position: absolute;
+	left: -4%;
+	background-size: 100%;
+	background-position-y: 64px;
+	background-position-x: center;
+	background-image: url(unquote($device-mockups-path + "nexus_6/nexus_6_port.png"));
+}
+.device-slider.nexus6
+{
+	.slider-slide .slide-body .slide-body-wrapper
+	{
+  	margin-top: 27.3%;
+	}
+}
+
+/* Galaxy S5 */
+.device-background.galaxyS5
+{
+	width: 114%;
+	height: 100%;
+	z-index: $base-z-index + 1;
+	position: absolute;
+	left: -7%;
+	background-size: 100%;
+	background-position-y: 42px;
+	background-position-x: center;
+}
+.device-slider.galaxyS5
+{
+	.slider-slide .slide-body .slide-body-wrapper
+	{
+  	margin-top: 25%;
+	}
+}
+.device-background.galaxyS5,
+.device-background.galaxyS5.black
+{
+	background-image: url(unquote($device-mockups-path + "galaxy_s5/galaxy_s5_black_port.png"));
+}
+.device-background.galaxyS5.white
+{
+	background-image: url(unquote($device-mockups-path + "galaxy_s5/galaxy_s5_white_port.png"));
+}
+.device-background.galaxyS5.gold
+{
+	background-image: url(unquote($device-mockups-path + "galaxy_s5/galaxy_s5_gold_port.png"));
+}

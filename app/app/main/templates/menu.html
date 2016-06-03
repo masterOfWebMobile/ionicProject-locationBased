@@ -1,0 +1,59 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-{{theme}}">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu id="side-menu" side="left" expose-aside-when="large">
+    <ion-content class="menu">
+      <img class="img-profile" width="96" height="96"
+      actual-src="{{ getPicture() }}" ng-src="main/assets/images/avatar.png">
+      <h5 class="title-profile" ng-class="{ hidden:!user }">
+        {{ user.get('name') }}
+      </h5>
+      <ion-list>
+        <ion-item menu-close nav-clear ng-click="onNavigateToCategories()">
+          <i class="icon ion-ios-navigate-outline"></i>
+          {{ "nearmeText" | translate }}
+        </ion-item>
+        <ion-item menu-close nav-clear ng-click="onNavigateToNewPlace()">
+          <i class="icon ion-ios-compose"></i>
+          {{ "addNewPlaceText" | translate }}
+        </ion-item>
+        <ion-item menu-close nav-clear ng-click="onNavigateToSearch()">
+          <i class="icon ion-search"></i>
+          {{ "searchText" | translate }}
+        </ion-item>
+        <ion-item menu-close nav-clear
+        ng-click="onNavigateToFavorites()">
+          <i class="icon ion-heart"></i>
+          {{ "favoritesText" | translate }}
+        </ion-item>
+        <ion-item menu-close nav-clear ng-click="onNavigateToProfile()" ng-if="user">
+          <i class="icon ion-person"></i>
+          {{ "profileText" | translate }}
+        </ion-item>
+        <ion-item menu-close nav-clear ng-click="onOpenSettings()">
+          <i class="icon ion-gear-a"></i>
+          {{ "settingsText" | translate }}
+        </ion-item>
+        <ion-item menu-close nav-clear ng-click="onLogIn()" ng-if="!user">
+          <i class="icon ion-log-out"></i>
+          {{ "signInText" | translate }}
+        </ion-item>
+        <ion-item menu-close nav-clear ng-click="onLogout()" ng-if="user">
+          <i class="icon ion-log-out"></i>
+          {{ "logoutText" | translate }}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

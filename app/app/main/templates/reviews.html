@@ -1,0 +1,30 @@
+<ion-view class="comments-view">
+  <ion-nav-title>{{ "reviewsTitle" | translate }}</ion-nav-title>
+  <ion-content>
+    <div ng-if="showErrorView()" ng-include="'main/templates/error-view.html'">
+    </div>
+    <div ng-if="showEmptyView()" ng-include="'main/templates/empty-reviews.html'">
+    </div>
+
+    <ion-list>
+      <ion-item class="item-avatar item-text-wrap" ng-if="showReviews()"
+      ng-repeat="review in reviews" bindonce>
+        <img ng-src="main/assets/images/avatar.png"
+        actual-src="{{ review.userData.get('photo').url() }}" />
+        <h2 bo-text="review.userData.get('name')"></h2>
+        <rating ng-if="review.rating" readonly="readOnly"
+        ng-model="review.rating" max="maxRating">
+        </rating>
+        <p bo-text="review.comment"></p>
+      </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll
+      on-infinite="onLoadMore()"
+      ng-if="moreDataCanBeLoaded()"
+      spinner
+      distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<div class="modal photos-modal dark-bg">
+  <ion-header-bar class="dark-bg">
+    <div class="buttons pull-right">
+      <button class="button button-outline button-light"
+        ng-click="closePhotosModal()">
+        {{ "closeText" | translate }}
+      </button>
+    </div>
+  </ion-header-bar>
+
+  <ion-slide-box show-pager="false" delegate-handle="modalPhotosSlideBoxHandle">
+    <ion-slide ng-if="place.image">
+      <img ng-src="{{ place.image.url() }}" class="fullscreen-image" />
+    </ion-slide>
+    <ion-slide ng-if="place.imageTwo">
+      <img ng-src="{{ place.imageTwo.url() }}" class="fullscreen-image" />
+    </ion-slide>
+    <ion-slide ng-if="place.imageThree">
+      <img ng-src="{{ place.imageThree.url() }}" class="fullscreen-image" />
+    </ion-slide>
+    <ion-slide ng-if="place.imageFour">
+      <img ng-src="{{ place.imageFour.url() }}" class="fullscreen-image" />
+    </ion-slide>
+  </ion-slide-box>
+
+</div>

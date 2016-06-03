@@ -1,0 +1,40 @@
+<ion-modal-view ng-controller="SignUpCtrl">
+  <ion-header-bar class="nearme-bg">
+    <div class="buttons">
+      <button class="button button-clear button-light"
+        ng-click="closeSignUpModal()">
+        {{ "closeText" | translate }}
+      </button>
+    </div>
+    <h1 class="title stable">{{ "signUpText" | translate }}</h1>
+  </ion-header-bar>
+  <ion-content class="nearme-bg-dark">
+    <div class="list list-inset" style="background:none">
+      <form name="form">
+      <label class="item item-input">
+        <input type="text" name="name"
+          placeholder="{{ 'nameText' | translate }}"
+        ng-model="registrar.name" required>
+      </label>
+      <br>
+      <label class="item item-input">
+        <input type="text" name="email"
+          placeholder="{{ 'emailText' | translate }}"
+        ng-model="registrar.email" autocapitalize="off" autocorrect="off">
+      </label>
+      <br>
+      <label class="item item-input">
+        <input type="password" name="password" required
+          placeholder="{{ 'passwordText' | translate }}"
+          ng-model="registrar.password" autocapitalize="off" autocorrect="off">
+      </label>
+      <br>
+      <div class="text-center">
+        <button class="button button-{{theme}}" ng-click="onSignUp(form.$valid)">
+        	<strong>{{ "signUpSubmitText" | translate }}</strong>
+        </button>
+      </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-modal-view>

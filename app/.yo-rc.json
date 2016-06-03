@@ -1,0 +1,24 @@
+{
+  "generator-m-ionic": {
+    "answers": {
+      "appName": "nearme",
+      "appId": "com.quanlabs.nearme",
+      "ionicCss": false,
+      "bowerPackages": [
+        "angular-dynamic-locale#~0.1.27",
+        "angular-translate#~2.10.0",
+        "angular-translate-loader-static-files#~2.10.0",
+        "localforage#~1.4.0"
+      ],
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "plugins": [
+        "cordova-plugin-device"
+      ],
+      "appModule": "nearme",
+      "ecosystems": []
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<ion-view>
+  <ion-nav-title>{{ "mapTitle" | translate }}</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon" ng-disabled="places.length === 0"
+      ng-click="openPlacesModal()">
+      <i class="icon ion-ios-list-outline"></i>
+    </button>
+    </ion-nav-buttons>
+  <ion-content>
+    <div id="map_canvas"></div>
+  </ion-content>
+  <ion-footer-bar ng-class="{'bar-{{theme}}': theme }">
+    <div class="buttons buttons-center">
+      <button class="button button-outline" ng-click="onSearchPlaces()">
+        {{ "searchInThisAreaText" | translate }}
+      </button>
+    </div>
+  </ion-footer-bar>
+</ion-view>

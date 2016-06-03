@@ -1,0 +1,179 @@
+.walkthrough
+{
+	background-color: $screen-bg-color-2;
+	height: 100%;
+
+	.device-slider
+	{
+		height: 82%;
+
+		.device-wrapper
+		{
+			position: absolute;
+			padding: 1px 0px 0px 0px;
+			height: inherit;
+			background-color: $nearme;
+
+			.device-wrapper-body
+			{
+				position: absolute;
+				height: 100%;
+				padding: 0px;
+				padding-top: $device-top-offset;
+				background-color: $nearme;
+
+				.device-wrapper-container
+				{
+					padding: 0px;
+					height: inherit;
+					background-color: $nearme;
+
+					.top-dissapearing-effect
+					{
+						width: inherit;
+						height: 75px;
+						position: absolute;
+						background-color: $screen-bg-color-1;
+					}
+
+					.left-dissapearing-effect
+					{
+						width:100%;
+						height: inherit;
+						z-index: $base-z-index;
+						background-color: $nearme;
+						padding: 0px;
+					}
+
+					.center-dissapearing-effect
+					{
+						width:100%;
+						height: inherit;
+						padding: 0px;
+						position: relative;
+					}
+
+					.right-dissapearing-effect
+					{
+						width:100%;
+						height: inherit;
+						z-index: $base-z-index;
+						background-color: $nearme;
+						padding: 0px;
+					}
+				}
+			}
+		}
+	}
+
+	.slider
+	{
+		height: 100%;
+		// To get pager below slider
+		overflow: inherit !important;
+		overflow-x: hidden;
+
+		.slider-pager
+		{
+			bottom: - $pager-size - 4px;
+			line-height: $pager-size;
+			height: initial;
+
+			.slider-pager-page
+			{
+				color: $pager-color;
+				font-size: $pager-size;
+			}
+		}
+	}
+
+	.intro-buttons {
+		height: 18%;
+		padding-top: 16px;
+	}
+
+	.slider-slide
+	{
+		background-color: $nearme;
+		text-align: center;
+
+		.slide-head
+		{
+			height: $device-top-offset;
+			overflow-y: hidden;
+
+			*
+			{
+				color:$screen-bg-color-2;
+			}
+		}
+
+		.slide-body
+		{
+			$fixed-offset: $device-top-offset - 1px;
+			@include calc("height", "100% - #{$fixed-offset}");
+			overflow: hidden;
+			margin-top: 0px;
+			padding: 0px;
+
+			.slide-body-wrapper
+			{
+				padding: 0 20%;
+				margin-top: 25%;
+				background-color: $device-bg-color;
+				height: 81%;
+			}
+
+			.full-width-image
+			{
+				width:100%;
+			}
+		}
+	}
+}
+
+// If we are on ios, search-height must add 20px
+.platform-ios.platform-cordova
+{
+	// iOS7/8 has a status bar which sits on top of the header.
+	// Bump down everything to make room for it. However, if
+	// if its in Cordova, and set to fullscreen, then disregard the bump.
+	&:not(.fullscreen)
+	{
+		.walkthrough .slider-slide .slide-head
+		{
+		  padding-top: $ios-statusbar-height;
+		}
+	}
+}
+
+.walkthrough-view
+{
+	.intro-buttons
+	{
+		.button
+		{
+			min-height: 20px;
+			height: 40px;
+			line-height: 40px;
+			width: 80%;
+			margin: 5px auto;
+		}
+	}
+
+	.device-html-example
+	{
+		background-color: #F1F1F1;
+		height: 100%;
+	}
+
+	#icon
+	{
+		margin: 10px 0px;
+
+		img
+		{
+			width: 70%;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+<ion-modal-view class="auth-modal" ng-controller="AuthCtrl">
+  <ion-header-bar>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeAuthModal()">
+        {{ "closeText" | translate }}
+      </button>
+    </div>
+    <h1 class="title">{{ "signInText" | translate }}</h1>
+  </ion-header-bar>
+  <ion-content class="content">
+    <div class="padding text-center">
+      <i class="icon ion-ios-locked-outline {{theme}}"></i>
+      <p class="dark info">
+        {{ "authModalText" | translate }}
+      </p>
+      <a class="button button-block button-fb" ng-click="onLoginViaFacebook()">
+        <i class="icon ion-social-facebook"></i>
+        {{ "signInViaFacebook" | translate }}
+      </a>
+    </div>
+
+    <div class="bar bar-footer">
+      <div class="buttons">
+        <button class="button button-block button-large button-outline button-{{theme}}"
+          ng-click="openSignInModal()">
+        {{ "signInText" | translate }}
+        </button>
+        <button class="button button-block button-large button-{{theme}}"
+          style="margin-left:5px;"
+          ng-click="openSignUpModal()">
+        {{ "signUpText" | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>
